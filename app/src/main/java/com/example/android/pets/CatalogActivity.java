@@ -3,7 +3,7 @@ package com.example.android.pets;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.pets.data.PetContract.PetEntry;
-import com.example.android.pets.data.PetDbHelper;
 
 /**
  * Displays list of pets that were entered and stored in the app.
@@ -46,10 +45,10 @@ public class CatalogActivity extends AppCompatActivity {
     private void displayDatabaseInfo() {
         // To access our database, we instantiate our subclass of SQLiteOpenHelper
         // and pass the context, which is the current activity.
-        PetDbHelper mDbHelper = new PetDbHelper(this);
+        //PetDbHelper mDbHelper = new PetDbHelper(this);
 
         // Create and/or open a database to read from it
-        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+        //SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
         // Perform this raw SQL query "SELECT * FROM pets"
         // to get a Cursor that contains all rows from the pets table.
@@ -63,7 +62,9 @@ public class CatalogActivity extends AppCompatActivity {
                 PetEntry.COLUMN_PET_WEIGHT
         };
 
-        Cursor cursor = db.query("pets",projection,null,null,null,null,null);
+        //Cursor cursor = db.query("pets",projection,null,null,null,null,null);
+
+        Cursor cursor = getContentResolver().query(PetEntry.CONTENT_URI,projection,null,null,null);
 
 
         try {
@@ -132,16 +133,17 @@ public class CatalogActivity extends AppCompatActivity {
         fields.put(PetEntry.COLUMN_PET_NAME, "Toto");
         fields.put(PetEntry.COLUMN_PET_WEIGHT, "7");
 
-        PetDbHelper mDbHelper = new PetDbHelper(this);
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        //PetDbHelper mDbHelper = new PetDbHelper(this);
+        //SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
-        long petId = db.insert(PetEntry.TABLE_NAME, null, fields);
+        Uri uri = getContentResolver().insert(PetEntry.CONTENT_URI, fields);
+        //db.insert(PetEntry.TABLE_NAME, null, fields);
 
-        if (petId >= 0) {
-            Toast.makeText( this, "Pet saved with Id: " + petId, Toast.LENGTH_SHORT ).show();
-        } else {
-            Toast.makeText( this, "Error saving pet :(", Toast.LENGTH_SHORT).show();
-        }
+        //if (petId >= 0) {
+            Toast.makeText( this, "Pet saved with Id: " + uri.getPath(), Toast.LENGTH_SHORT ).show();
+        //} else {
+            //Toast.makeText( this, "Error saving pet :(", Toast.LENGTH_SHORT).show();
+        //}
     }
 
     @Override
