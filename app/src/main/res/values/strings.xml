@@ -65,4 +65,39 @@
     <!-- Mensagem Toast no editor quando um novo pet falhou em ser inserido [CHAR LIMIT=NONE] -->
     <string name="editor_insert_pet_failed">Error with saving pet</string>
 
+    <!-- Texto do título para a view vazia, que descreve a imagem vazia da casa de cachorro [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">It\'s a bit lonely here...</string>
+
+    <!-- Texto de legenda para a view vazia que solicita o usuário a adicionar um pet [CHAR LIMIT=50] -->
+    <string name="empty_view_subtitle_text">Get started by adding a pet</string>
+    <string name="editor_activity_title_edit_pet">Edit a Pet</string>
+    <string name="editor_update_pet_failed">A edição do pet falhou!</string>
+    <string name="editor_update_pet_successful">Pet salvo com sucesso!</string>
+
+    <!-- Mensagem de dialog de quando o usuário está deixando o editor mas não salvou as alterações [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Texto de botão de dialog para a opção de descartar uma alteração do usuário [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Texto de botão de dialog para a opção de continuar editando o pet atual [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- Toast message in editor when current pet was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_pet_successful">Pet deleted</string>
+
+    <!-- Toast message in editor when current pet has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_pet_failed">Error with deleting pet</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current pet [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this pet?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current pet [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current pet [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Label for the pet's breed if the breed is unknown [CHAR LIMIT=20] -->
+    <string name="unknown_breed">Unknown breed</string>
 </resources>
